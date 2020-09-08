@@ -7,19 +7,15 @@
             <div class="col-12 col-md-10 col-lg-8">
                 <div class="row">
 
-                    @if (count($categories)>0)
-                    @foreach ($categories as $nav)
                     <div class="col-12 col-md-4 col-lg-4">
                         <a href="">
                             <div class="banner_box">
                                 <i class="fab fa-laravel"></i>
-                                <h3 class="banner_box_h3">{{$nav->categoryName}}</h3>
+                                <h3 class="banner_box_h3">{{$tagName}}</h3>
                                 <p>The Toptal Blog is the top hub for developers.</p>
                             </div>
                         </a>
                     </div>
-                    @endforeach
-                @endif
 
                 </div>
             </div>
@@ -50,11 +46,11 @@
                             <div class="home_card_bottom">
                                 <div class="home_card_bottom_text">
 
-                                    @if (count($b->cat)>0)
+                                    @if (count($b->tag)>0)
                                     <ul class="home_card_bottom_text_ul">
-                                        @foreach ($b->cat as $c)
+                                        @foreach ($b->tag as $t)
                                         <li>
-                                            <a href="blog_post.html">{{$c->categoryName}}</a>
+                                            <a href="blog_post.html">{{$t->tagName}}</a>
                                             <span><i class="fas fa-angle-right"></i></span>
                                         </li>
                                         @endforeach
@@ -90,9 +86,9 @@
 
 
             </div>
-            <div class="text-center">
-                <button><a href="/blogs">View All</button>
-            </div>
+
+            {!! $blogs->links() !!}
+            
         </div>
     </div>
             <!-- PAGINATION -->

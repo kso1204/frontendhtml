@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+
+Route::get('/','BlogController@index');
+Route::get('/blog/{slug}', 'BlogController@blogSingle');
+Route::get('/category/{categoryName}/{id}', 'BlogController@categoryIndex');
+Route::get('/tag/{tagName}/{id}', 'BlogController@tagIndex');
+Route::get('/blogs', 'BlogController@allBlog');
+Route::get('/search', 'BlogController@search');
